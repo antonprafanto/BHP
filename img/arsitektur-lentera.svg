@@ -1,0 +1,166 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1050" width="1200" height="1050" font-family="Segoe UI, Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#475569"/>
+    </marker>
+    <marker id="ahr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#dc2626"/>
+    </marker>
+    <marker id="ahg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/>
+    </marker>
+  </defs>
+
+  <!-- Latar -->
+  <rect x="0" y="0" width="1200" height="1050" rx="18" fill="#ffffff"/>
+
+  <!-- Judul -->
+  <text x="40" y="52" font-size="28" font-weight="700" fill="#0f172a">Arsitektur Sistem LENTERA</text>
+  <text x="40" y="80" font-size="15" fill="#64748b">Alat peringatan dini &amp; monitoring listrik untuk rumah subsidi</text>
+
+  <!-- ========== ZONA 1: PERANGKAT ========== -->
+  <rect x="30" y="105" width="1140" height="440" rx="16" fill="#f0fdf4" stroke="#16a34a" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="66" cy="133" r="13" fill="#16a34a"/>
+  <text x="66" y="138" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">1</text>
+  <text x="88" y="139" font-size="16" font-weight="700" fill="#166534">PERANGKAT LENTERA — dipasang di samping panel MCB</text>
+  <rect x="880" y="117" width="270" height="30" rx="15" fill="#16a34a"/>
+  <text x="1015" y="137" font-size="13.5" font-weight="700" fill="#ffffff" text-anchor="middle">Tetap jalan tanpa internet</text>
+
+  <!-- Input: jala-jala -->
+  <rect x="60" y="165" width="270" height="70" rx="10" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+  <text x="78" y="193" font-size="16" font-weight="700" fill="#991b1b">Jala-jala 220 V (L &amp; N)</text>
+  <text x="78" y="215" font-size="13" fill="#7f1d1d">ukur tegangan · dipasang teknisi</text>
+
+  <!-- Input: CT -->
+  <rect x="60" y="250" width="270" height="65" rx="10" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+  <text x="78" y="276" font-size="16" font-weight="700" fill="#9a3412">CT split-core (klem arus)</text>
+  <text x="78" y="298" font-size="13" fill="#7c2d12">dijepit, tanpa potong kabel</text>
+
+  <!-- Input: suhu -->
+  <rect x="60" y="330" width="270" height="55" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="78" y="353" font-size="16" font-weight="700" fill="#1e40af">DS18B20</text>
+  <text x="78" y="373" font-size="13" fill="#1e3a8a">suhu di panel MCB</text>
+
+  <!-- Input: asap -->
+  <rect x="60" y="400" width="270" height="55" rx="10" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="78" y="423" font-size="16" font-weight="700" fill="#1e40af">Sensor asap</text>
+  <text x="78" y="443" font-size="13" fill="#1e3a8a">MQ-2 / detektor fotoelektrik</text>
+
+  <!-- Input: catu daya -->
+  <rect x="60" y="470" width="270" height="55" rx="10" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+  <text x="78" y="493" font-size="16" font-weight="700" fill="#854d0e">PSU AC-DC + baterai</text>
+  <text x="78" y="513" font-size="13" fill="#713f12">berfuse, terisolasi, aman saat padam</text>
+
+  <!-- PZEM -->
+  <rect x="380" y="190" width="190" height="100" rx="12" fill="#fff7ed" stroke="#ea580c" stroke-width="2.5"/>
+  <text x="475" y="225" font-size="19" font-weight="700" fill="#9a3412" text-anchor="middle">PZEM-004T</text>
+  <text x="475" y="248" font-size="13.5" fill="#7c2d12" text-anchor="middle">V · I · P · PF · kWh</text>
+  <text x="475" y="270" font-size="12" fill="#9a3412" text-anchor="middle">±1 pembacaan / detik</text>
+
+  <!-- Panah input -> PZEM -->
+  <path d="M330 200 H355 V225 H378" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M330 282 H355 V255 H378" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- Panah PZEM -> ESP32 -->
+  <path d="M570 240 H658" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="615" y="230" font-size="11" font-weight="600" fill="#334155" text-anchor="middle">UART/Modbus</text>
+
+  <!-- Panah sensor -> ESP32 -->
+  <path d="M330 357 H658" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M330 427 H658" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M330 497 H658" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <text x="495" y="489" font-size="12" fill="#64748b" text-anchor="middle">catu daya 5 V</text>
+
+  <!-- ESP32 -->
+  <rect x="660" y="165" width="310" height="360" rx="14" fill="#0f766e"/>
+  <text x="815" y="200" font-size="24" font-weight="700" fill="#ffffff" text-anchor="middle">ESP32</text>
+  <text x="815" y="222" font-size="13" fill="#ccfbf1" text-anchor="middle">otak perangkat · bekerja lokal</text>
+
+  <rect x="678" y="240" width="274" height="82" rx="10" fill="#ffffff"/>
+  <text x="692" y="264" font-size="14" font-weight="700" fill="#0f766e">Tingkat 1 · Aturan keselamatan</text>
+  <text x="692" y="285" font-size="12.5" fill="#334155">Sisa daya, panas, asap,</text>
+  <text x="692" y="303" font-size="12.5" fill="#334155">pompa menyala terlalu lama</text>
+
+  <rect x="678" y="332" width="274" height="82" rx="10" fill="#ffffff"/>
+  <text x="692" y="356" font-size="14" font-weight="700" fill="#0f766e">Tingkat 2 · Kenali perangkat</text>
+  <text x="692" y="377" font-size="12.5" fill="#334155">Event detection (ΔP, ΔPF)</text>
+  <text x="692" y="395" font-size="12.5" fill="#334155">+ klasifier ringan (kNN)</text>
+
+  <rect x="678" y="424" width="274" height="82" rx="10" fill="#ffffff"/>
+  <text x="692" y="448" font-size="14" font-weight="700" fill="#0f766e">Penyimpanan lokal</text>
+  <text x="692" y="469" font-size="12.5" fill="#334155">Buffer LittleFS / SD card,</text>
+  <text x="692" y="487" font-size="12.5" fill="#334155">dikirim saat internet kembali</text>
+
+  <!-- Output: buzzer -->
+  <path d="M970 281 H1003" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="1005" y="240" width="145" height="82" rx="10" fill="#fefce8" stroke="#ca8a04" stroke-width="2"/>
+  <text x="1077" y="273" font-size="16" font-weight="700" fill="#854d0e" text-anchor="middle">Buzzer</text>
+  <text x="1077" y="295" font-size="13" fill="#713f12" text-anchor="middle">+ LED status</text>
+
+  <!-- Output: relay (roadmap) -->
+  <path d="M970 390 H1003" fill="none" stroke="#94a3b8" stroke-width="2" stroke-dasharray="5 4" marker-end="url(#ahg)"/>
+  <rect x="1005" y="340" width="145" height="100" rx="10" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <text x="1077" y="370" font-size="14.5" font-weight="700" fill="#64748b" text-anchor="middle">Relay pemutus</text>
+  <text x="1077" y="393" font-size="12" fill="#64748b" text-anchor="middle">roadmap —</text>
+  <text x="1077" y="411" font-size="12" fill="#64748b" text-anchor="middle">bukan untuk lomba</text>
+
+  <!-- ========== KONEKSI ========== -->
+  <text x="748" y="572" font-size="13.5" font-weight="700" fill="#334155" text-anchor="end">WiFi (utama)</text>
+  <text x="748" y="589" font-size="12" fill="#64748b" text-anchor="end">sinkron data</text>
+
+  <path d="M955 525 V868" fill="none" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7 5" marker-end="url(#ahr)"/>
+  <text x="967" y="572" font-size="13.5" font-weight="700" fill="#b91c1c">4G / SMS</text>
+  <text x="967" y="589" font-size="12" fill="#7f1d1d">cadangan saat bahaya,</text>
+  <text x="967" y="605" font-size="12" fill="#7f1d1d">langsung ke penghuni</text>
+
+  <!-- ========== ZONA 2: ONLINE ========== -->
+  <rect x="380" y="612" width="550" height="195" rx="16" fill="#faf5ff" stroke="#7c3aed" stroke-width="2" stroke-dasharray="8 6"/>
+  <circle cx="406" cy="638" r="13" fill="#7c3aed"/>
+  <text x="406" y="643" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">2</text>
+  <text x="428" y="644" font-size="15" font-weight="700" fill="#5b21b6">LAYANAN ONLINE (butuh internet)</text>
+
+  <path d="M760 525 V658" fill="none" stroke="#475569" stroke-width="2.5" marker-end="url(#ah)"/>
+  <rect x="420" y="660" width="470" height="125" rx="12" fill="#ffffff" stroke="#7c3aed" stroke-width="2.5"/>
+  <text x="440" y="690" font-size="17" font-weight="700" fill="#5b21b6">Cloud · MQTT / HTTPS + TLS</text>
+  <text x="445" y="718" font-size="14" fill="#334155">• Sinkronisasi data saat online</text>
+  <text x="445" y="742" font-size="14" fill="#334155">• Tingkat 3 · Anomali vs pola normal rumah</text>
+  <text x="445" y="766" font-size="14" fill="#334155">• Pelabelan perangkat oleh penghuni</text>
+
+  <!-- Panah cloud -> penerima -->
+  <path d="M560 785 V835 H300 V868" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+  <path d="M800 785 V868" fill="none" stroke="#475569" stroke-width="2" marker-end="url(#ah)"/>
+
+  <!-- ========== ZONA 3: PENERIMA ========== -->
+  <circle cx="66" cy="845" r="13" fill="#059669"/>
+  <text x="66" y="850" font-size="15" font-weight="700" fill="#ffffff" text-anchor="middle">3</text>
+  <text x="88" y="851" font-size="15" font-weight="700" fill="#065f46">PENERIMA INFORMASI</text>
+
+  <rect x="50" y="870" width="470" height="115" rx="12" fill="#f0f9ff" stroke="#0284c7" stroke-width="2"/>
+  <text x="70" y="902" font-size="17" font-weight="700" fill="#075985">Developer · BTN · Asuransi</text>
+  <text x="70" y="928" font-size="13.5" fill="#0c4a6e">Dashboard agregat: pola konsumsi &amp; risiko</text>
+  <text x="70" y="952" font-size="13" fill="#64748b">Data teranonimisasi, dengan izin penghuni (UU PDP)</text>
+
+  <rect x="720" y="870" width="430" height="115" rx="12" fill="#ecfdf5" stroke="#059669" stroke-width="2"/>
+  <text x="740" y="902" font-size="17" font-weight="700" fill="#065f46">Penghuni rumah</text>
+  <text x="740" y="926" font-size="13.5" fill="#064e3b">Aplikasi / WhatsApp / SMS — bahasa manusia:</text>
+  <text x="740" y="950" font-size="13" font-style="italic" fill="#047857">“Pompa air menyala 3 jam, cek kebocoran tandon.”</text>
+  <text x="740" y="972" font-size="13" font-style="italic" fill="#047857">“Sisa daya 150 VA, tunda dulu rice cooker.”</text>
+
+  <!-- ========== LEGENDA ========== -->
+  <g font-size="12.5" fill="#475569">
+    <rect x="50" y="1008" width="16" height="16" rx="3" fill="#fef2f2" stroke="#dc2626" stroke-width="2"/>
+    <text x="74" y="1021">Tegangan 220 V</text>
+    <rect x="215" y="1008" width="16" height="16" rx="3" fill="#fff7ed" stroke="#ea580c" stroke-width="2"/>
+    <text x="239" y="1021">Pengukuran listrik</text>
+    <rect x="395" y="1008" width="16" height="16" rx="3" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+    <text x="419" y="1021">Sensor</text>
+    <rect x="500" y="1008" width="16" height="16" rx="3" fill="#0f766e"/>
+    <text x="524" y="1021">Pemrosesan lokal</text>
+    <rect x="665" y="1008" width="16" height="16" rx="3" fill="#faf5ff" stroke="#7c3aed" stroke-width="2"/>
+    <text x="689" y="1021">Cloud</text>
+    <line x1="765" y1="1016" x2="800" y2="1016" stroke="#dc2626" stroke-width="2.5" stroke-dasharray="7 5"/>
+    <text x="808" y="1021">Jalur cadangan</text>
+    <rect x="935" y="1008" width="16" height="16" rx="3" fill="#f8fafc" stroke="#94a3b8" stroke-width="2" stroke-dasharray="4 3"/>
+    <text x="959" y="1021">Roadmap (belum untuk lomba)</text>
+  </g>
+</svg>

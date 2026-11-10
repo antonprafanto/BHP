@@ -102,19 +102,9 @@ Dengan daya 900–1.300 VA, jumlah perangkat besar yang menyala bersamaan **sedi
 
 **d) Bangun AI secara bertingkat:**
 
-```
-Tingkat 1 — Aturan (di ESP32, offline, PASTI jalan)
-  • Beban mendekati batas VA → peringatan "sisa daya"
-  • Suhu panel > ambang, asap terdeteksi → buzzer + notifikasi
-  • Beban ~X W menyala terus > N jam → "pompa kemungkinan bocor"
+![AI bertingkat di LENTERA](img/ai-bertingkat.svg)
 
-Tingkat 2 — Pengenalan perangkat (ESP32 / cloud)
-  • Event detection + klasifier ringan (kNN/RF), dilatih data lab + label pengguna
-
-Tingkat 3 — Anomali terhadap pola rumah itu sendiri (cloud)
-  • Baseline per jam/hari per rumah; z-score / Isolation Forest
-  • "Konsumsi malam ini 2× rata-rata 2 minggu terakhir"
-```
+*Versi PNG untuk slide: [img/ai-bertingkat.png](img/ai-bertingkat.png)*
 
 Contoh "pompa nyala 3 jam" **tidak perlu NILM yang canggih**. Begitu Tingkat 1 + Tingkat 2 sederhana jalan, fitur ini sudah bisa didemokan. Jangan sampai seluruh nilai produk bergantung pada bagian yang paling sulit.
 
@@ -230,30 +220,15 @@ Plus **foto/video prototipe awal** di test bench lab. Relay pemutus, GSM, dan NI
 
 ## 4. Sketsa arsitektur yang saya sarankan
 
-```
-┌────────────────────── Perangkat LENTERA (di samping panel MCB) ───────────────────────┐
-│                                                                                       │
-│  [CT split-core] ─┐                                                                   │
-│  [L/N 220V] ──────┴─► PZEM-004T ──UART/Modbus──┐                                      │
-│                                               ▼                                       │
-│  DS18B20 (suhu panel) ──────────────────────► ESP32 ──► Buzzer / LED status           │
-│  Sensor asap ───────────────────────────────►  │  • Aturan keselamatan (Tingkat 1)    │
-│                                                │  • Event detection + kNN (Tingkat 2) │
-│  PSU AC-DC (berfuse, terisolasi) + Baterai ───►│  • Buffer data (LittleFS / SD)       │
-│                                                │                                      │
-└────────────────────────────────────────────────┼──────────────────────────────────────┘
-                                                 │ WiFi (utama)  /  4G-SMS (cadangan kritis)
-                                                 ▼
-                         ┌──────────── Cloud (MQTT/HTTPS + TLS) ────────────┐
-                         │ • Sinkronisasi data saat online                  │
-                         │ • Anomali vs baseline per rumah (Tingkat 3)      │
-                         │ • Pelabelan perangkat oleh penghuni              │
-                         └───────┬────────────────────────┬─────────────────┘
-                                 ▼                        ▼
-                   Aplikasi/WA penghuni           Dashboard agregat
-                   (notifikasi bahasa manusia)    Developer / BTN / asuransi
-                                                  (teranonimisasi, dengan izin)
-```
+![Arsitektur sistem LENTERA](img/arsitektur-lentera.svg)
+
+*Versi PNG untuk slide: [img/arsitektur-lentera.png](img/arsitektur-lentera.png)*
+
+**Cara membaca diagram:**
+1. **Zona hijau (perangkat)** tetap bekerja tanpa internet. Semua fungsi keselamatan ada di sini.
+2. **Zona ungu (online)** hanya dipakai saat ada internet, untuk sinkronisasi dan analisis lanjutan.
+3. **Garis merah putus-putus (4G/SMS)** adalah jalur cadangan. Peringatan bahaya langsung dikirim ke penghuni tanpa lewat cloud.
+4. **Kotak abu-abu putus-putus (relay pemutus)** masuk roadmap, bukan fitur untuk lomba.
 
 ---
 
